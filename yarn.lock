@@ -6730,6 +6730,11 @@ http-proxy@^1.17.0:
     follow-redirects "^1.0.0"
     requires-port "^1.0.0"
 
+http-shutdown@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/http-shutdown/-/http-shutdown-1.2.1.tgz#f3be43af70d54c32c26ab7aa22d143d737ef761a"
+  integrity sha512-EVttBpDbynTLq1Xz4Y2/AfGv+7HbARU6TmwqtecgUulY3zFvPsgWW3MHMgAU9nwNZeJwgrjCIwk/1g9Be2vVPQ==
+
 http-signature@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/http-signature/-/http-signature-1.2.0.tgz#9aecd925114772f3d95b65a60abb8f7c18fbace1"
