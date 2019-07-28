@@ -2,7 +2,7 @@ const url = require('url');
 const net = require('net');
 const http = require('http');
 
-function OProxy() {
+function OProxy(callback) {
   const httpServer = http.createServer((req, res) => {
     // Non proxy request
     if (req.url.indexOf('http://') !== 0) {
@@ -49,7 +49,7 @@ function OProxy() {
     const target = url.parse(`any://${req.url}`);
     const { port, hostname } = target;
     console.warn('target:', req.url);
-
+    callback(target);
     // Cleanup closes sockets
     const cleanup = () => {
       try {
@@ -97,21 +97,18 @@ function OProxy() {
   return require('http-shutdown')(httpServer);
 }
 
-const proxy = OProxy();
+// const proxy = OProxy();
 
-function open() {
-  proxy.listen(8888, () => {
-    console.warn('OProxy listening ...');
-  });
-}
+// function open() {
+//   proxy.listen(8888, () => {
+//     console.warn('OProxy listening ...');
+//   });
+// }
 
-function close () {
-  proxy.shutdown(() => {
-    console.log('Everything is cleanly shutdown.');
-  });
-}
+// function close () {
+//   proxy.shutdown(() => {
+//     console.log('Everything is cleanly shutdown.');
+//   });
+// }
 
-export {
-  open,
-  close
-}
+export default OProxy;

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './Home.css';
 
-import {open, close} from '../../proxy';
+import proxyhandler from '../../proxy';
 
 type Props = {};
 
@@ -10,16 +10,15 @@ export default class Home extends Component<Props> {
   props: Props;
 
   onClick = () => {
-    console.log('proxy open');
-    open();
-  };
+    proxyhandler.open();
+  }
 
   onClose = () => {
-    console.log('proxy close');
-    close()
-  };
+    proxyhandler.close();
+  }
 
   render() {
+    console.log('props', this.props)
     return (
       <div className={styles.container}>
         <p>O Proxy</p>
