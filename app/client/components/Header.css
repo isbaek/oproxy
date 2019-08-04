@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.h2 {
+  font-weight: normal;
+  color: #f3f7ff;
+}
+
+
+.button {
+  background-color: #1d09db;
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: #f3f7ff;
+  font-size: 18px;
+}

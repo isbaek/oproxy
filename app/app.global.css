@@ -7,7 +7,8 @@
 body {
   color: white;
   height: 100vh;
-  background-color: #111318;
+  background-color: #030306;
   font-family: Arial, Helvetica, Helvetica Neue, serif;
   overflow-y: hidden;
+  padding: 0px 30px;
 }

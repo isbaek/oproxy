@@ -49,7 +49,12 @@ function OProxy(callback) {
     const target = url.parse(`any://${req.url}`);
     const { port, hostname } = target;
     console.warn('target:', req.url);
-    callback(target);
+    const data = {
+      url: req.url,
+      success: true,
+      ...target,
+    }
+    callback(data);
     // Cleanup closes sockets
     const cleanup = () => {
       try {

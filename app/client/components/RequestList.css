@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: #161C27;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.alternate {
+  composes: row;
+  background-color: #111620;
+}
+
+.text {
+  color: #ddd;
+  padding-left: 10px;
+}
+
+.success {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #26CA94;
+
+}
+
+.fail {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #aa5150;
+}
