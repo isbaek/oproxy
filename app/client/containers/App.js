@@ -5,7 +5,7 @@ import Home from '../components/Home';
 
 function mapStateToProps(state) {
   return {
-    urls: state.urls
+    requests: state.requests
   };
 }
 

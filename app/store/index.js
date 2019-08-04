@@ -8,9 +8,6 @@ const selectedConfigureStore =
     : configureStoreDev;
 
 const store = selectedConfigureStore.configureStore();
-const history = selectedConfigureStore.history;
+const { history } = selectedConfigureStore;
 
-export {
-  store,
-  history
-}
+export { store, history };

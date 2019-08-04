@@ -19,7 +19,7 @@ export default class Root extends Component<Props> {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <Switch>
-            <Route path={'/'} component={App} />
+            <Route path="/" component={App} />
           </Switch>
         </ConnectedRouter>
       </Provider>

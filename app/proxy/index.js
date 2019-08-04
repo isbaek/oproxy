@@ -1,26 +1,26 @@
 import Proxy from '../../proxy';
-import { store, history } from '../store';
+import { store } from '../store';
 
 class ProxyHandler {
   constructor() {
-    this.proxy = Proxy(this.callback)
+    this.proxy = Proxy(this.callback);
   }
 
-  open () {
+  open() {
     this.proxy.listen(8888, () => {
       console.warn('OProxy listening ...');
     });
   }
 
-  close () {
+  close() {
     this.proxy.shutdown(() => {
       console.log('Everything is cleanly shutdown.');
     });
   }
 
-  callback = (target) => {
-    store.dispatch({type: 'ADD_URL', url: target})
-  }
+  callback = target => {
+    store.dispatch({ type: 'ADD_REQUEST', request: target });
+  };
 }
 
 export default new ProxyHandler();

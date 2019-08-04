@@ -97,18 +97,4 @@ function OProxy(callback) {
   return require('http-shutdown')(httpServer);
 }
 
-// const proxy = OProxy();
-
-// function open() {
-//   proxy.listen(8888, () => {
-//     console.warn('OProxy listening ...');
-//   });
-// }
-
-// function close () {
-//   proxy.shutdown(() => {
-//     console.log('Everything is cleanly shutdown.');
-//   });
-// }
-
 export default OProxy;
