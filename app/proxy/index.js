@@ -4,12 +4,15 @@ import { store } from '../store';
 class ProxyHandler {
   constructor() {
     this.proxy = Proxy(this.callback);
+    this.port = store.getState().proxyReducer.port;
     this.isRunning = false;
+    console.log('access store');
   }
 
-  open(port = '8888') {
-    this.proxy.listen(port, () => {
+  open() {
+    this.proxy.listen(this.port, () => {
       this.isRunning = true;
+      store.dispatch({ type: 'START_PROXY' });
       console.warn('OProxy listening ...');
     });
   }
@@ -17,6 +20,7 @@ class ProxyHandler {
   close() {
     this.proxy.shutdown(() => {
       this.isRunning = false;
+      store.dispatch({ type: 'END_PROXY' });
       console.log('Everything is cleanly shutdown.');
     });
   }
@@ -25,7 +29,7 @@ class ProxyHandler {
     if (this.isRunning) {
       this.proxy.close();
     }
-    this.proxy.open(port);
+    store.dispatch({ type: 'CHANGE_PORT', port });
   }
 
   callback = target => {

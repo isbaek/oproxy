@@ -1,12 +1,10 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import Home from './Home';
+import Main from './Main';
 
 function mapStateToProps(state) {
-  return {
-    requests: state.requests
-  };
+  return { ...state.proxyReducer };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -16,4 +14,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(Main);

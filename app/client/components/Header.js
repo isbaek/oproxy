@@ -2,17 +2,24 @@
 import React from 'react';
 import styles from './Header.css';
 
-function Header ({ onClick, isListening }) {
+type HeaderPropsType = {
+  onClick: () => void,
+  isListening: boolean,
+  port: number
+};
+
+function Header({ onClick, isListening, port }: HeaderPropsType) {
   return (
     <div className={styles.container}>
       <h2>OProxy</h2>
       <div>
-      <button className={styles.button} onClick={onClick}>
-        {isListening ? 'Stop' : 'Start'}
-      </button>
+        {isListening ? `Proxy started on ${port}...` : ''}
+        <button type="button" className={styles.button} onClick={onClick}>
+          {isListening ? 'Stop' : 'Start'}
+        </button>
       </div>
     </div>
-  )
+  );
 }
 
 export default Header;
