@@ -4,7 +4,7 @@ export const START_PROXY = 'START_PROXY';
 export const END_PROXY = 'END_PROXY';
 export const CHANGE_PORT = 'CHANGE_PORT';
 
-export function addRequest(request) {
+export function addRequest(request: {}) {
   return {
     type: ADD_REQUEST,
     request
@@ -23,7 +23,7 @@ export function endProxy() {
   };
 }
 
-export function changePort(port) {
+export function changePort(port: number) {
   return {
     type: CHANGE_PORT,
     port

@@ -1,12 +1,13 @@
 // @flow
 import React, { Component } from 'react';
+import {RequestType} from '../types';
 import Header from '../components/Header';
 import RequestList from '../components/RequestList';
 
 import proxyHandler from '../../proxy';
 
 type Props = {
-  requests: object[],
+  requests: RequestType[],
   started: boolean,
   port: number
 };

@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
+import {RequestType} from '../types';
 import styles from './RequestList.css';
 
 type RequestListPropsType = {
-  requests: object[],
-  isSelected: boolean
+  requests: RequestType[],
+  isSelected?: boolean
 };
 
 function RequestList({ requests, isSelected }: RequestListPropsType) {
