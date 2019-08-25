@@ -1,6 +1,12 @@
 .container {
   display: flex;
   flex: 1;
+  flex-direction: row;
+}
+
+.list {
+  display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
@@ -12,6 +18,10 @@
   background-color: #161C27;
   border-radius: 5px;
   margin-bottom: 5px;
+}
+
+.row:hover {
+  cursor: pointer;
 }
 
 .alternate {

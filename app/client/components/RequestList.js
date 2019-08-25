@@ -1,28 +1,40 @@
 // @flow
-import React, {useState} from 'react';
-import {RequestType} from '../types';
+import React, { useState } from 'react';
+import { RequestType } from '../types';
 import RequestDetails from './RequestDetails';
 import styles from './RequestList.css';
 
 type RequestListPropsType = {
-  requests: RequestType[],
-  isSelected?: boolean
+  requests: RequestType[]
 };
 
-function RequestList({ requests, isSelected }: RequestListPropsType) {
+function useSelectedRequest() {
   const [selectedRequest, setSelectedRequest] = useState(null);
+
+  return {
+    selectedRequest,
+    toggleRequest: req =>
+      setSelectedRequest(req === selectedRequest ? null : req)
+  };
+}
+
+function RequestList({ requests }: RequestListPropsType) {
+  const { selectedRequest, toggleRequest } = useSelectedRequest();
   return (
     <div className={styles.container}>
-      {requests.map((request, index) => (
-        <button
-          className={index % 2 === 0 ? styles.alternate : styles.row}
-          key={request + index}
-          onClick={() => setSelectedRequest(request)}
-        >
-          <div className={styles.success} />
-          <div className={styles.text}>{request.url}</div>
-        </button>
-      ))}
+      <div className={styles.list}>
+        {requests.map((request, index) => (
+          <button
+            type="button"
+            className={index % 2 === 0 ? styles.alternate : styles.row}
+            key={request + index}
+            onClick={() => toggleRequest(request)}
+          >
+            <div className={styles.success} />
+            <div className={styles.text}>{request.url}</div>
+          </button>
+        ))}
+      </div>
       {selectedRequest && <RequestDetails selectedRequest={selectedRequest} />}
     </div>
   );

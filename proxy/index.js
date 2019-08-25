@@ -48,12 +48,12 @@ function OProxy(callback) {
   httpServer.on('connect', (req, socket, head) => {
     const target = url.parse(`any://${req.url}`);
     const { port, hostname } = target;
-    console.warn('target:', req.url);
     const data = {
       url: req.url,
       success: true,
-      ...target,
-    }
+      headers: req.headers,
+      ...target
+    };
     callback(data);
     // Cleanup closes sockets
     const cleanup = () => {

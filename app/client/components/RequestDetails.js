@@ -1,16 +1,28 @@
 // @flow
 import React from 'react';
-import {RequestType} from '../types';
-import styles from './RequestList.css';
+import { RequestType } from '../types';
+import styles from './RequestDetails.css';
 
 type RequestDetailsPropsType = {
-  selectedRequest: RequestType,
+  selectedRequest: RequestType
 };
 
 function RequestDetails({ selectedRequest }: RequestDetailsPropsType) {
+  const headers = Object.keys(selectedRequest.headers);
+
   return (
     <div className={styles.container}>
-      {JSON.stringify(selectedRequest)}
+      <button type="button" className={styles.tab}>
+        Headers
+      </button>
+      {headers.map(header => (
+        <div key={header}>
+          <span className={styles.key}>{header}</span>:
+          <span className={styles.value}>
+            {` ${selectedRequest.headers[header]}`}
+          </span>
+        </div>
+      ))}
     </div>
   );
 }

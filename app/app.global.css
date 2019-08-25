@@ -16,3 +16,8 @@ body {
 #root {
   height: 728px;
 }
+
+
+h1, h2, h3, p {
+  margin: 0;
+}
