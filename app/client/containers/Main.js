@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {RequestType} from '../types';
 import Header from '../components/Header';
 import RequestList from '../components/RequestList';
+import styles from './Main.css';
 
 import proxyHandler from '../../proxy';
 
@@ -39,12 +40,26 @@ export default class Main extends Component<Props> {
     }
   };
 
+  onPortChange = (port) => {
+   const { changePort } = this.props;
+   changePort(port)
+  }
+
   render() {
     const { requests, started, port } = this.props;
     return (
-      <div>
-        <Header onClick={this.onButtonClick} isListening={started} port={port} />
-        {requests.length > 0 && <RequestList requests={requests} />}
+      <div className={styles.container}>
+        <Header 
+          onClick={this.onButtonClick} 
+          isListening={started} 
+          onPortChange={this.onPortChange}
+          port={port} 
+        />
+        {requests.length > 0 && (
+          <div className={styles.requests}>
+            <RequestList requests={requests} />
+          </div>
+        )}
       </div>
     );
   }

@@ -5,9 +5,14 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 body {
-  color: white;
-  height: 100vh;
+  margin: 0;
+  padding: 0;
   background-color: #030306;
   font-family: Arial, Helvetica, Helvetica Neue, serif;
-  padding: 0px 30px;
+  overflow: hidden;
+  color: white;
+}
+
+#root {
+  height: 728px;
 }

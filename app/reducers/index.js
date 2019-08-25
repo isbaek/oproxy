@@ -15,12 +15,14 @@ function reducer(state = initialState, action: Action) {
   switch (action.type) {
     case START_PROXY: {
       return Object.assign({}, state, {
-        started: true
+        started: true,
+        requests: [],
       });
     }
     case END_PROXY: {
       return Object.assign({}, state, {
-        started: false
+        started: false,
+        requests: [],
       });
     }
     case CHANGE_PORT: {
