@@ -9,7 +9,7 @@ export default class MenuBuilder {
     this.mainWindow = mainWindow;
   }
 
-  buildMenu() {
+  buildMenu(toggleWindow) {
     if (
       process.env.NODE_ENV === 'development' ||
       process.env.DEBUG_PROD === 'true'
@@ -27,6 +27,9 @@ export default class MenuBuilder {
     const menu = Menu.buildFromTemplate(template);
     tray.setToolTip('Oproxy');
     tray.setContextMenu(menu);
+    tray.on('click', () => {
+      toggleWindow();
+    });
     Menu.setApplicationMenu(menu);
 
     return menu;
