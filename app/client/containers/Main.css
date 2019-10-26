@@ -1,6 +1,5 @@
 .container {
-   height: 100%;
-   padding: 30px;
+   height: 600px;
    box-sizing: border-box;
    display: flex;
    flex-direction: column;
@@ -8,5 +7,7 @@
 
 .requests {
     flex: 1;
-    overflow-y: scroll;
+    display: flex;
+    padding-bottom: 60px;
+    box-sizing: border-box;
 }

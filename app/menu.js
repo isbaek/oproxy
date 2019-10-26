@@ -1,6 +1,5 @@
 // @flow
-import path from 'path';
-import { app, Menu, shell, BrowserWindow, Tray } from 'electron';
+import { app, Menu, shell, BrowserWindow } from 'electron';
 
 export default class MenuBuilder {
   mainWindow: BrowserWindow;
@@ -9,7 +8,7 @@ export default class MenuBuilder {
     this.mainWindow = mainWindow;
   }
 
-  buildMenu(toggleWindow) {
+  buildMenu() {
     if (
       process.env.NODE_ENV === 'development' ||
       process.env.DEBUG_PROD === 'true'
@@ -22,15 +21,7 @@ export default class MenuBuilder {
         ? this.buildDarwinTemplate()
         : this.buildDefaultTemplate();
 
-    const iconPath = path.join(__dirname, 'networkTemplate.png');
-    const tray = new Tray(iconPath);
     const menu = Menu.buildFromTemplate(template);
-    tray.setToolTip('Oproxy');
-    tray.setContextMenu(menu);
-    tray.on('click', () => {
-      toggleWindow();
-    });
-    Menu.setApplicationMenu(menu);
 
     return menu;
   }

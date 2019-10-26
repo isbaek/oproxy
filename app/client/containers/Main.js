@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import {RequestType} from '../types';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import RequestList from '../components/RequestList';
 import styles from './Main.css';
 
@@ -55,11 +56,10 @@ export default class Main extends Component<Props> {
           onPortChange={this.onPortChange}
           port={port} 
         />
-        {requests.length > 0 && (
           <div className={styles.requests}>
             <RequestList requests={requests} />
           </div>
-        )}
+        <Footer isListening={started}  port={port} />
       </div>
     );
   }

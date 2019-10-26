@@ -4,13 +4,15 @@
   justify-content: space-between;
   align-items: center;
   height: 80px;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .h2 {
   font-weight: normal;
-  color: #f3f7ff;
+  color: #3b3f46;
 }
-
 
 .button {
   background-color: #1d09db;
@@ -19,6 +21,19 @@
   padding: 10px 30px;
   border-radius: 5px;
   color: #f3f7ff;
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+.input {
+  background-color: #fff;
+  outline: none;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 15px 0 rgba(117, 117, 117, 0.08);
+  color: #3b3f46;
+  font-size: 14px;
+  width: 80px;
 }

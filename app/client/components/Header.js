@@ -12,15 +12,15 @@ type HeaderPropsType = {
 function Header({ onClick, isListening, port, onPortChange }: HeaderPropsType) {
   return (
     <div className={styles.container}>
-      <h2>OProxy</h2>
-      <div>
-        {isListening ? `Proxy started on ` : ''}
-        <input
+      <h2 className={styles.h2}>OProxy</h2>
+      <div className={styles.content}>
+        {/* <input
+          className={styles.input}
           type="text"
           placeholder="8888"
           value={port}
           onChange={e => onPortChange(e.target.value)}
-        />
+        /> */}
         <button type="button" className={styles.button} onClick={onClick}>
           {isListening ? 'Stop' : 'Start'}
         </button>
