@@ -26,6 +26,11 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
 }
 
+.stopButton {
+  composes: button;
+  background-color: #ed2b33ff;
+}
+
 .input {
   background-color: #fff;
   outline: none;

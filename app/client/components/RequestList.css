@@ -4,12 +4,14 @@
   flex-direction: row;
   padding: 20px;
   box-sizing: border-box;
+  max-height: 100%;
 }
 
 .list {
   display: flex;
   flex: 1;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .row {
@@ -22,19 +24,11 @@
   margin-bottom: 5px;
 }
 
-.row:hover {
-  cursor: pointer;
-}
-
 .alternate {
   composes: row;
   background-color: #111620;
 }
 
-.text {
-  color: #ddd;
-  padding-left: 10px;
-}
 
 .success {
   width: 10px;
@@ -65,4 +59,9 @@
   margin-top: 20px;
   padding: 0 40px;
   text-align: center;
+}
+
+.url {
+  color: #fff;
+  padding-left: 10px;
 }

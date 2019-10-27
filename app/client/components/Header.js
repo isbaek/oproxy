@@ -21,7 +21,11 @@ function Header({ onClick, isListening, port, onPortChange }: HeaderPropsType) {
           value={port}
           onChange={e => onPortChange(e.target.value)}
         /> */}
-        <button type="button" className={styles.button} onClick={onClick}>
+        <button
+          type="button"
+          className={isListening ? styles.stopButton : styles.button}
+          onClick={onClick}
+        >
           {isListening ? 'Stop' : 'Start'}
         </button>
       </div>

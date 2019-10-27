@@ -56,9 +56,9 @@ export default class Main extends Component<Props> {
           onPortChange={this.onPortChange}
           port={port} 
         />
-          <div className={styles.requests}>
-            <RequestList requests={requests} />
-          </div>
+        <div className={styles.requests}>
+          <RequestList requests={requests} isListening={started} />
+        </div>
         <Footer isListening={started}  port={port} />
       </div>
     );
