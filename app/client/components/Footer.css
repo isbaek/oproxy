@@ -27,6 +27,7 @@
 
 .text {
   color: #3b3f46;
+  font-size: 14px;
 }
 
 .alternate {
@@ -39,7 +40,7 @@
   background-color: #26CA94;
   border-radius: 50%;
   box-shadow: 0 0 0 2px rgba(117, 117, 117, 0.08);
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .offline {
@@ -49,5 +50,5 @@
   background-color: #ed2b33ff;
   border-radius: 50%;
   box-shadow: 0 0 0 2px rgba(117, 117, 117, 0.08);
-  margin-right: 5px;
+  margin-right: 10px;
 }
