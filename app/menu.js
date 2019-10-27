@@ -22,6 +22,7 @@ export default class MenuBuilder {
         : this.buildDefaultTemplate();
 
     const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
 
     return menu;
   }
@@ -50,6 +51,9 @@ export default class MenuBuilder {
           label: 'About OProxy',
           selector: 'orderFrontStandardAboutPanel:'
         },
+        { type: 'separator' },
+        { label: 'Services', submenu: [] },
+        { type: 'separator' },
         {
           label: 'Hide OProxy',
           accelerator: 'Command+H',
@@ -113,36 +117,42 @@ export default class MenuBuilder {
         }
       ]
     };
-    // const subMenuViewProd = {
-    //   label: 'View',
-    //   submenu: [
-    //     {
-    //       label: 'Toggle Full Screen',
-    //       accelerator: 'Ctrl+Command+F',
-    //       click: () => {
-    //         this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen());
-    //       }
-    //     }
-    //   ]
-    // };
-    // const subMenuWindow = {
-    //   label: 'Window',
-    //   submenu: [
-    //     {
-    //       label: 'Minimize',
-    //       accelerator: 'Command+M',
-    //       selector: 'performMiniaturize:'
-    //     },
-    //     { label: 'Close', accelerator: 'Command+W', selector: 'performClose:' },
-    //     { type: 'separator' },
-    //     { label: 'Bring All to Front', selector: 'arrangeInFront:' }
-    //   ]
-    // };
+    const subMenuViewProd = {
+      label: 'View',
+      submenu: [
+        {
+          label: 'Toggle Full Screen',
+          accelerator: 'Ctrl+Command+F',
+          click: () => {
+            this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen());
+          }
+        }
+      ]
+    };
+    const subMenuWindow = {
+      label: 'Window',
+      submenu: [
+        {
+          label: 'Minimize',
+          accelerator: 'Command+M',
+          selector: 'performMiniaturize:'
+        },
+        { label: 'Close', accelerator: 'Command+W', selector: 'performClose:' },
+        { type: 'separator' },
+        { label: 'Bring All to Front', selector: 'arrangeInFront:' }
+      ]
+    };
     const subMenuHelp = {
       label: 'Help',
       submenu: [
         {
-          label: 'Email',
+          label: 'Learn More',
+          click() {
+            shell.openExternal('https://github.com/yunibaek/oproxy');
+          }
+        },
+        {
+          label: 'Contact Support',
           click() {
             shell.openExternal('mailto:contact@inseobaek.com');
           }
@@ -150,7 +160,10 @@ export default class MenuBuilder {
       ]
     };
 
-    return [subMenuAbout, subMenuHelp];
+    const subMenuView =
+      process.env.NODE_ENV === 'development' ? subMenuViewDev : subMenuViewProd;
+
+    return [subMenuAbout, subMenuEdit, subMenuView, subMenuWindow, subMenuHelp];
   }
 
   buildDefaultTemplate() {
@@ -172,10 +185,57 @@ export default class MenuBuilder {
         ]
       },
       {
+        label: '&View',
+        submenu:
+          process.env.NODE_ENV === 'development'
+            ? [
+                {
+                  label: '&Reload',
+                  accelerator: 'Ctrl+R',
+                  click: () => {
+                    this.mainWindow.webContents.reload();
+                  }
+                },
+                {
+                  label: 'Toggle &Full Screen',
+                  accelerator: 'F11',
+                  click: () => {
+                    this.mainWindow.setFullScreen(
+                      !this.mainWindow.isFullScreen()
+                    );
+                  }
+                },
+                {
+                  label: 'Toggle &Developer Tools',
+                  accelerator: 'Alt+Ctrl+I',
+                  click: () => {
+                    this.mainWindow.toggleDevTools();
+                  }
+                }
+              ]
+            : [
+                {
+                  label: 'Toggle &Full Screen',
+                  accelerator: 'F11',
+                  click: () => {
+                    this.mainWindow.setFullScreen(
+                      !this.mainWindow.isFullScreen()
+                    );
+                  }
+                }
+              ]
+      },
+      {
         label: 'Help',
         submenu: [
           {
-            label: 'Email',
+            label: 'Learn More',
+            click() {
+              shell.openExternal('https://github.com/yunibaek/oproxy');
+            }
+          },
+          {
+            label: 'Contact Support',
             click() {
               shell.openExternal('mailto:contact@inseobaek.com');
             }
