@@ -3,12 +3,13 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 @import '~@fortawesome/fontawesome-free/css/all.css';
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto&display=swap');
 
 body {
   margin: 0;
   padding: 0;
   background-color: #dde2eb;
-  font-family: Arial, Helvetica, Helvetica Neue, serif;
+  font-family: 'Roboto', sans-serif;
   overflow: hidden;
   color: white;
 }
