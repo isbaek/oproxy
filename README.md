@@ -42,7 +42,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Download the `.dmg` file [here]()
+Download the latest version in the [releases]() page
 
 
 <!-- ROADMAP -->
