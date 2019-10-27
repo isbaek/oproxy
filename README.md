@@ -42,7 +42,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Download the latest version in the [releases]() page
+Download the latest version in the [releases](https://github.com/yunibaek/oproxy/releases) page
 
 
 <!-- ROADMAP -->
